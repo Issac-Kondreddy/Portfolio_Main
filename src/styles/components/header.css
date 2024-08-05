@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-image: var(--gradient-color);
+    position: relative;  /* Ensures that the header is the reference point for positioning */
+}
+
+.header-nav {
+    width: 100%;  /* Takes full width to center the nav */
+    display: flex;
+    justify-content: center;  /* Centers the nav */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;  /* Ensure alignment with the switcher */
+}
+
+nav ul li {
+    margin: 0 15px;  /* Adjust spacing between links */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.theme-switcher {
+    position: absolute;  /* Positions the switcher relative to the header */
+    right: 20px;  /* 20px from the right edge of the header */
+    top: 50%;  /* Centers it vertically */
+    transform: translateY(-50%);  /* Correct vertical centering */
+}
