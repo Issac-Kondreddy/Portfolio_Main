@@ -1,15 +1,15 @@
 import React from 'react';
-import './styles/global.css'; // Ensure global styles are loaded
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import About from './components/About';
+import './styles/global.css';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <main>
-      </main>
+      <About />
+      {/* Other components like Education, Skills, etc., should go here */}
       <Footer />
     </div>
   );

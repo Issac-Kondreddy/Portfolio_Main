@@ -4,6 +4,8 @@
     gap: 10px;
     font-size: 16px;
     color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
 }
 
 .switch {
@@ -27,8 +29,10 @@
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: .4s;
+    transition: background-color 0.4s, box-shadow 0.4s;
     border-radius: 34px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensure the inner glow stays within the slider */
 }
 
 .slider:before {
@@ -39,20 +43,52 @@
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: .4s;
+    transition: transform 0.4s, background-color 0.4s;
     border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: slide 0.4s;
 }
 
 input:checked + .slider {
-    background-color: #2196F3; /* Blue background for the slider when it's checked */
+    background-color: #4caf50; /* Green background for the slider when it's checked */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+    animation: glow 0.4s ease-in-out;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2196F3, inset 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 input:checked + .slider:before {
     transform: translateX(26px);
+    background-color: #fff; /* White knob for the slider when it's checked */
+    animation: bounce 0.4s;
+}
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(26px); }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(26px);
+    }
+    50% {
+        transform: translateX(20px);
+    }
 }
 
 /* Rounded corners for the slider */
@@ -66,4 +102,8 @@ input:checked + .slider:before {
 
 .theme-text {
     font-weight: bold;
+    font-size: 18px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    margin-right: 10px;
 }
